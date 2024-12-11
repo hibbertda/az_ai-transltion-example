@@ -39,18 +39,6 @@ if uploaded_file is not None:
         except requests.RequestException as e:
             st.error(f"Error calling the translation function: {e}")
             st.stop()
-        
-        # Assume data format as previously discussed:
-        # [
-        #   {
-        #       "original_text": "...",
-        #       "detected_language": "...",
-        #       "detected_language_score": ...,
-        #       "translated_text": "...",
-        #       "summary": "...",
-        #       "description": "..."
-        #   }
-        # ]
 
         if isinstance(data, list) and len(data) > 0:
             doc_info = data[0]  # Take the first item if only one document
